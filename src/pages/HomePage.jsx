@@ -2,6 +2,7 @@ import { useState } from "react";
 import StudentCard from "../components/StudentCard";
 
 import studentsData from "../assets/students.json";
+import { Link } from "react-router-dom";
 
 function HomePage() {
   // eslint-disable-next-line no-unused-vars
@@ -21,7 +22,9 @@ function HomePage() {
       {students &&
         students.map((student) => {
           return (
+            <Link to={`/students/${student._id}`}>
               <StudentCard key={student._id} {...student} />
+            </Link>
           );
         })}
     </div>
